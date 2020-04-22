@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.nuc.thesis</groupId>
+    <artifactId>thesis</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>thesis</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>thesis-announcement</module>
+        <module>thesis-file</module>
+        <module>thesis-student</module>
+        <module>thesis-teacher</module>
+        <module>thesis-thesis</module>
+        <module>thesis-user</module>
+        <module>thesis-weekly</module>
+    </modules>
+
+</project>
