@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: thesis-announcement
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 049f3ebc-7502-419d-b00a-c51c9b270a61

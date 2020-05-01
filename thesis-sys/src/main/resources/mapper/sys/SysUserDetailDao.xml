@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.nuc.thesis.sys.dao.SysUserDetailDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="cn.nuc.thesis.sys.entity.SysUserDetailEntity" id="sysUserDetailMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="userNo" column="user_no"/>
+        <result property="userName" column="user_name"/>
+        <result property="role" column="role"/>
+        <result property="departmentId" column="department_id"/>
+        <result property="majorId" column="major_id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+
+</mapper>

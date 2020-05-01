@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: thesis-document
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: dad5ce2e-8dd4-4174-89ce-339b64b899e8

@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 267d0834-68fa-497a-88f0-265e771eaf4b
+        extension-configs[0]:
+          data-id: oss.yml
+          group: DEFAULT_GROUP
+          refresh: true
+  application:
+    name: thesis-third-party

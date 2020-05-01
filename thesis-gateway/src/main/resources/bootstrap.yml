@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: thesis-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: e7362572-031a-49cc-89d4-8c3f70e4d057

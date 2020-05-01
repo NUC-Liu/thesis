@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: thesis-weekly
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 9653c63d-790d-4935-bc32-8a7ac39314d9
