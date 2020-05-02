@@ -2,25 +2,22 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: announcenment_route
+        - id: announcenment-route
           uri: lb://thesis-announcement
           predicates:
             - Path=/announcement/**
-
-        - id: document_route
-          uri: lb://thesis-document
-          predicates:
-            - Path=/document/**
 
         - id: thesis-route
           uri: lb://thesis-thesis
           predicates:
             - Path=/thesis/**
 
-        - id: third_party_route
+        - id: third-party-route
           uri: lb://thesis-third-party
           predicates:
-            - Path=/thesis-third-party/**
+            - Path=/third-party/**
+          filters:
+            - RewritePath=/third-party/(?<segment>.*),/$\{segment}
 
         - id: sys_route
           uri: lb://thesis-sys

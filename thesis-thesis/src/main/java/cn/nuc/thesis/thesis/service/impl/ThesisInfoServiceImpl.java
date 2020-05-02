@@ -27,19 +27,31 @@ public class ThesisInfoServiceImpl extends ServiceImpl<ThesisInfoDao, ThesisInfo
     }
 
     @Override
-    public PageUtils queryUnSelectedPage(Map<String, Object> params) {
+    public PageUtils queryPageByTeacherName(Map<String, Object> params) {
+        ThesisInfoEntity entity = new ThesisInfoEntity();
+        entity.setTeacherNo((String) params.get("teacherNo"));
         IPage<ThesisInfoEntity> page = this.page(
                 new Query<ThesisInfoEntity>().getPage(params),
-                new QueryWrapper<ThesisInfoEntity>().isNull("student_id")
+                new QueryWrapper<>(entity)
         );
 
         return new PageUtils(page);
     }
 
     @Override
-    public boolean selectThesis(Long userId, Long thesisId) {
+    public PageUtils queryUnSelectedPage(Map<String, Object> params) {
+        IPage<ThesisInfoEntity> page = this.page(
+                new Query<ThesisInfoEntity>().getPage(params),
+                new QueryWrapper<ThesisInfoEntity>().isNull("student_no")
+        );
+
+        return new PageUtils(page);
+    }
+
+    @Override
+    public boolean selectThesis(String studentNo, Long thesisId) {
         ThesisInfoEntity entity = new ThesisInfoEntity();
-        entity.setStudentId(userId);
+        entity.setStudentNo(studentNo);
         entity.setId(thesisId);
         return updateById(entity);
     }

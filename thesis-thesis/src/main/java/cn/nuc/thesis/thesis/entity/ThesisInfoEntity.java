@@ -12,7 +12,7 @@ import lombok.Data;
  * 
  * @author Liu
  * @email 568419374@qq.com
- * @date 2020-04-27 13:01:34
+ * @date 2020-05-02 17:35:08
  */
 @Data
 @TableName("tms_thesis_info")
@@ -33,7 +33,7 @@ public class ThesisInfoEntity implements Serializable {
 	 */
 	private String title;
 	/**
-	 * 教师号
+	 * 教师编号
 	 */
 	private String teacherNo;
 	/**
@@ -47,7 +47,11 @@ public class ThesisInfoEntity implements Serializable {
 	/**
 	 * 备选状态
 	 */
-	private Long studentId;
+	private String studentNo;
+	/**
+	 * 任务书路径
+	 */
+	private String taskPath;
 	/**
 	 * 创建时间
 	 */

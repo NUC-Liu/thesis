@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  * 
  * @author Liu
  * @email 568419374@qq.com
- * @date 2020-04-27 13:01:34
+ * @date 2020-05-02 16:43:52
  */
 @Mapper
 public interface StudentPunishDao extends BaseMapper<StudentPunishEntity> {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.nuc.thesis.thesis.dao.StageInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="cn.nuc.thesis.thesis.entity.StageInfoEntity" id="stageInfoMap">
+        <result property="id" column="id"/>
+        <result property="studentNo" column="user_No"/>
+        <result property="thesisId" column="thesis_id"/>
+        <result property="proposalPath" column="proposal_path"/>
+        <result property="proposalGrade" column="proposal_grade"/>
+        <result property="midPath" column="mid_path"/>
+        <result property="midGrade" column="mid_grade"/>
+        <result property="finalPath" column="final_path"/>
+        <result property="finalGrade" column="final_grade"/>
+    </resultMap>
+    <select id="selectBatchByTeacherNo" resultType="cn.nuc.thesis.thesis.dto.StageInfoDTO">
+        SELECT s.id,s.student_no,s.thesis_id,t.task_path,s.proposal_path,s.proposal_grade,s.mid_path,s.mid_grade,s.final_path,s.final_grade,t.thesis_no,t.title
+        FROM tms_stage_info AS s
+        LEFT JOIN tms_thesis_info AS t
+        ON s.thesis_id = t.id
+        WHERE teacher_no = #{teacherNo}
+    </select>
+
+
+</mapper>

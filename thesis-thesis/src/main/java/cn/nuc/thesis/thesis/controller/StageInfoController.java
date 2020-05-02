@@ -1,8 +1,10 @@
 package cn.nuc.thesis.thesis.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import cn.nuc.thesis.thesis.dto.StageInfoDTO;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.nuc.thesis.thesis.entity.StudentPunishEntity;
-import cn.nuc.thesis.thesis.service.StudentPunishService;
+import cn.nuc.thesis.thesis.entity.StageInfoEntity;
+import cn.nuc.thesis.thesis.service.StageInfoService;
 import cn.nuc.common.utils.PageUtils;
 import cn.nuc.common.utils.R;
 
@@ -23,21 +25,30 @@ import cn.nuc.common.utils.R;
  *
  * @author Liu
  * @email 568419374@qq.com
- * @date 2020-05-02 16:43:52
+ * @date 2020-05-02 17:04:00
  */
 @RestController
-@RequestMapping("thesis/studentpunish")
-public class StudentPunishController {
+@RequestMapping("thesis/stage")
+public class StageInfoController {
     @Autowired
-    private StudentPunishService studentPunishService;
+    private StageInfoService stageInfoService;
+
+    /**
+     * 根据教师号查询阶段
+     */
+    @RequestMapping("/listByTeacher")
+    public R listByTeacher(@RequestParam("teacherNo") String teacherNo) {
+        List<StageInfoDTO> list = stageInfoService.getByTeacherNo(teacherNo);
+        return R.ok().put("stages", list);
+    }
 
     /**
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("thesis:studentpunish:list")
+    @RequiresPermissions("thesis:stageinfo:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = studentPunishService.queryPage(params);
+        PageUtils page = stageInfoService.queryPage(params);
 
         return R.ok().put("page", page);
     }
@@ -47,20 +58,20 @@ public class StudentPunishController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("thesis:studentpunish:info")
+    @RequiresPermissions("thesis:stageinfo:info")
     public R info(@PathVariable("id") Long id){
-		StudentPunishEntity studentPunish = studentPunishService.getById(id);
+		StageInfoEntity stageInfo = stageInfoService.getById(id);
 
-        return R.ok().put("studentPunish", studentPunish);
+        return R.ok().put("stageInfo", stageInfo);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("thesis:studentpunish:save")
-    public R save(@RequestBody StudentPunishEntity studentPunish){
-		studentPunishService.save(studentPunish);
+    @RequiresPermissions("thesis:stageinfo:save")
+    public R save(@RequestBody StageInfoEntity stageInfo){
+		stageInfoService.save(stageInfo);
 
         return R.ok();
     }
@@ -69,9 +80,9 @@ public class StudentPunishController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("thesis:studentpunish:update")
-    public R update(@RequestBody StudentPunishEntity studentPunish){
-		studentPunishService.updateById(studentPunish);
+    @RequiresPermissions("thesis:stageinfo:update")
+    public R update(@RequestBody StageInfoEntity stageInfo){
+		stageInfoService.updateById(stageInfo);
 
         return R.ok();
     }
@@ -80,9 +91,9 @@ public class StudentPunishController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("thesis:studentpunish:delete")
+    @RequiresPermissions("thesis:stageinfo:delete")
     public R delete(@RequestBody Long[] ids){
-		studentPunishService.removeByIds(Arrays.asList(ids));
+		stageInfoService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

@@ -19,6 +19,8 @@ public interface ThesisInfoService extends IService<ThesisInfoEntity> {
 
     PageUtils queryUnSelectedPage(Map<String, Object> params);
 
-    boolean selectThesis(Long userId, Long thesisId);
+    boolean selectThesis(String studentNo, Long thesisId);
+
+    PageUtils queryPageByTeacherName(Map<String, Object> params);
 }
 
