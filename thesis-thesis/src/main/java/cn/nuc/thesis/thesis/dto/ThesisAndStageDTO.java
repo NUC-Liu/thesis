@@ -9,6 +9,10 @@ public class ThesisAndStageDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 阶段id
+     */
+    private Long id;
+    /**
      * 论文id
      */
     private Long thesisId;

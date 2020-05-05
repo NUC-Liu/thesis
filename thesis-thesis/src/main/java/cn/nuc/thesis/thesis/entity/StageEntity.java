@@ -12,33 +12,33 @@ import lombok.Data;
  * 
  * @author Liu
  * @email 568419374@qq.com
- * @date 2020-05-02 16:43:52
+ * @date 2020-05-05 03:21:39
  */
 @Data
-@TableName("tms_student_punish")
-public class StudentPunishEntity implements Serializable {
+@TableName("tms_stage")
+public class StageEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 记过表id
+	 * 
 	 */
 	@TableId
 	private Long id;
 	/**
-	 * 惩罚
+	 * 
 	 */
-	private String studentNo;
+	private String stageName;
 	/**
-	 * 描述
+	 * 
 	 */
-	private String descirption;
+	private Date startTime;
 	/**
-	 * 创建时间
+	 * 
 	 */
-	private Date gmtCreate;
+	private Date deadline;
 	/**
-	 * 修改时间
+	 * 
 	 */
-	private Date gmtModified;
+	private String description;
 
 }

@@ -1,4 +1,4 @@
-package cn.nuc.thesis.weekly.entity;
+package cn.nuc.thesis.thesis.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -12,10 +12,10 @@ import lombok.Data;
  * 
  * @author Liu
  * @email 568419374@qq.com
- * @date 2020-04-27 12:59:05
+ * @date 2020-05-03 02:54:41
  */
 @Data
-@TableName("wms_weekly")
+@TableName("tms_weekly")
 public class WeeklyEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -29,21 +29,21 @@ public class WeeklyEntity implements Serializable {
 	 */
 	private String content;
 	/**
-	 * 学生id
+	 * 学生
 	 */
-	private Long studentId;
+	private String studentNo;
 	/**
 	 * 编辑人
 	 */
 	private String editor;
 	/**
-	 * 用户组
+	 * 角色
 	 */
-	private Integer userGroup;
+	private String role;
 	/**
-	 * 评级
+	 * 分数
 	 */
-	private Integer grade;
+	private String grade;
 	/**
 	 * 创建时间
 	 */

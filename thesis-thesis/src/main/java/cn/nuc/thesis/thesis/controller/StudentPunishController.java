@@ -1,8 +1,11 @@
 package cn.nuc.thesis.thesis.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import cn.nuc.thesis.thesis.entity.WeeklyEntity;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,10 +29,21 @@ import cn.nuc.common.utils.R;
  * @date 2020-05-02 16:43:52
  */
 @RestController
-@RequestMapping("thesis/studentpunish")
+@RequestMapping("thesis/punish")
 public class StudentPunishController {
     @Autowired
     private StudentPunishService studentPunishService;
+
+    /**
+     * 通过学号查惩戒
+     */
+    @RequestMapping("listByStudent")
+    public R listByStudent(@RequestParam("studentNo") String studentNo) {
+        StudentPunishEntity entity = new StudentPunishEntity();
+        entity.setStudentNo(studentNo);
+        List<StudentPunishEntity> list = studentPunishService.list(new QueryWrapper<>(entity));
+        return R.ok().put("punish", list);
+    }
 
     /**
      * 列表

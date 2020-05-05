@@ -1,4 +1,4 @@
-package cn.nuc.thesis.weekly.service.impl;
+package cn.nuc.thesis.thesis.service.impl;
 
 import org.springframework.stereotype.Service;
 import java.util.Map;
@@ -8,9 +8,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.nuc.common.utils.PageUtils;
 import cn.nuc.common.utils.Query;
 
-import cn.nuc.thesis.weekly.dao.WeeklyDao;
-import cn.nuc.thesis.weekly.entity.WeeklyEntity;
-import cn.nuc.thesis.weekly.service.WeeklyService;
+import cn.nuc.thesis.thesis.dao.WeeklyDao;
+import cn.nuc.thesis.thesis.entity.WeeklyEntity;
+import cn.nuc.thesis.thesis.service.WeeklyService;
 
 
 @Service("weeklyService")

@@ -131,8 +131,25 @@ public class ThesisInfoController {
     @RequestMapping("/save")
     @RequiresPermissions("${moduleName}:${pathName}:save")
     public R save(@RequestBody ThesisInfoEntity thesisInfo){
-		thesisInfoService.save(thesisInfo);
-
+        if (thesisInfo.getStudentNo() != null) {
+            String studentNo = thesisInfo.getStudentNo();
+            Long thesisId = null;
+            //查看是否选过论文
+            ThesisInfoEntity isSelected = thesisInfoService.getOne(new QueryWrapper<ThesisInfoEntity>().eq("student_no", studentNo));
+            if (isSelected != null) return R.error("该学生已选过论文，请重试");
+            //创建论文
+            thesisInfoService.save(thesisInfo);
+            thesisId = thesisInfoService.getOne(new QueryWrapper<>(thesisInfo)).getId();
+            //选取论文
+            boolean result1 = thesisInfoService.selectThesis(studentNo, thesisId);
+            //创建阶段表表
+            StageInfoEntity stageInfoEntity = new StageInfoEntity();
+            stageInfoEntity.setStudentNo(studentNo);
+            stageInfoEntity.setThesisId(thesisId);
+            boolean result2 = stageInfoService.save(stageInfoEntity);
+            return R.ok();
+        }
+        thesisInfoService.save(thesisInfo);
         return R.ok();
     }
 
@@ -154,7 +171,11 @@ public class ThesisInfoController {
     @RequiresPermissions("${moduleName}:${pathName}:delete")
     public R delete(@RequestBody Long[] ids){
 		thesisInfoService.removeByIds(Arrays.asList(ids));
-
+		StageInfoEntity stageInfoEntity = null;
+        for (long id: ids) {
+            stageInfoEntity.setThesisId(id);
+            stageInfoService.remove(new QueryWrapper<>(stageInfoEntity));
+        }
         return R.ok();
     }
 
