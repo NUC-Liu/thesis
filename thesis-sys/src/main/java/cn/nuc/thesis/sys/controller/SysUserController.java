@@ -28,11 +28,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 系统用户
- *
- * @author Mark sunlightcs@gmail.com
- */
+
 @RestController
 @RequestMapping("/sys/user")
 public class SysUserController extends AbstractController {

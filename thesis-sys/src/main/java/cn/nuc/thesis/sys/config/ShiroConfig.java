@@ -30,14 +30,6 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
-    @Bean("securityManager")
-    public SecurityManager securityManager(OAuth2Realm oAuth2Realm) {
-        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(oAuth2Realm);
-        securityManager.setRememberMeManager(null);
-        return securityManager;
-    }
-
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
@@ -64,6 +56,14 @@ public class ShiroConfig {
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 
         return shiroFilter;
+    }
+
+    @Bean("securityManager")
+    public SecurityManager securityManager(OAuth2Realm oAuth2Realm) {
+        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        securityManager.setRealm(oAuth2Realm);
+        securityManager.setRememberMeManager(null);
+        return securityManager;
     }
 
     @Bean("lifecycleBeanPostProcessor")

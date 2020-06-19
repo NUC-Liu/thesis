@@ -12,6 +12,11 @@ spring:
           predicates:
             - Path=/thesis/**
 
+        - id: thesis-hadoop
+          uri: lb://thesis-hadoop
+          predicates:
+            - Path=/hadoop/**
+
         - id: third-party-route
           uri: lb://thesis-third-party
           predicates:

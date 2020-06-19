@@ -22,11 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Set;
 
-/**
- * 系统菜单
- *
- * @author Mark sunlightcs@gmail.com
- */
+
 @RestController
 @RequestMapping("/sys/menu")
 public class SysMenuController extends AbstractController {

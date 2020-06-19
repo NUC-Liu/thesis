@@ -30,11 +30,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Map;
 
-/**
- * 登录相关
- *
- * @author Mark sunlightcs@gmail.com
- */
+
 @RestController
 public class SysLoginController extends AbstractController {
 	@Autowired

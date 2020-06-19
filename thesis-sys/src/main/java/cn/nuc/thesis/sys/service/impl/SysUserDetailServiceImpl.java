@@ -12,6 +12,9 @@ import cn.nuc.thesis.sys.dao.SysUserDetailDao;
 import cn.nuc.thesis.sys.entity.SysUserDetailEntity;
 import cn.nuc.thesis.sys.service.SysUserDetailService;
 
+/**
+ * @deprecated
+ */
 
 @Service("sysUserDetailService")
 public class SysUserDetailServiceImpl extends ServiceImpl<SysUserDetailDao, SysUserDetailEntity> implements SysUserDetailService {

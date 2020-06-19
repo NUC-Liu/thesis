@@ -1,5 +1,6 @@
 package cn.nuc.thesis.thesis.controller;
 
+import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ import cn.nuc.thesis.thesis.entity.WeeklyEntity;
 import cn.nuc.thesis.thesis.service.WeeklyService;
 import cn.nuc.common.utils.PageUtils;
 import cn.nuc.common.utils.R;
-
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
@@ -34,9 +35,29 @@ public class WeeklyController {
     private WeeklyService weeklyService;
 
     /**
+     * 接受前台传过来的图片
+     */
+    @RequestMapping("/uploadImg")
+    public R uploadImg(@RequestParam("file") MultipartFile file) {
+        String basePath = "E:\\thesis repository";
+        String filePath = basePath + "\\" + file.getOriginalFilename();
+        File desFile = new File(filePath);
+        if(!desFile.getParentFile().exists()){
+            desFile.mkdirs();
+        }
+        try {
+            file.transferTo(desFile);
+        } catch (IllegalStateException | IOException e) {
+            e.printStackTrace();
+            return R.error().put("errno", 404);
+        }
+        return R.ok().put("fullUrl", filePath);
+    }
+
+    /**
      * 根据学号查周报
      */
-    @RequestMapping("listByStudent")
+    @RequestMapping("/listByStudent")
     public R listByStudent(@RequestParam("studentNo") String studentNo) {
         WeeklyEntity weeklyEntity = new WeeklyEntity();
         weeklyEntity.setStudentNo(studentNo);
@@ -73,6 +94,7 @@ public class WeeklyController {
     @RequestMapping("/save")
     @RequiresPermissions("thesis:weekly:save")
     public R save(@RequestBody WeeklyEntity weekly){
+        if (weekly.getContent().length() > 1000) return R.error("内容太长");
 		weeklyService.save(weekly);
 
         return R.ok();

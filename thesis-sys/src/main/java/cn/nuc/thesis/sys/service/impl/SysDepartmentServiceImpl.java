@@ -12,6 +12,9 @@ import cn.nuc.thesis.sys.dao.SysDepartmentDao;
 import cn.nuc.thesis.sys.entity.SysDepartmentEntity;
 import cn.nuc.thesis.sys.service.SysDepartmentService;
 
+/**
+ * @deprecated
+ */
 
 @Service("sysDepartmentService")
 public class SysDepartmentServiceImpl extends ServiceImpl<SysDepartmentDao, SysDepartmentEntity> implements SysDepartmentService {

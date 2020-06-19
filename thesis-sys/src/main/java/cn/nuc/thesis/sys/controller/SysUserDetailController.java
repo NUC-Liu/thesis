@@ -24,6 +24,7 @@ import cn.nuc.common.utils.R;
  * @author Liu
  * @email 568419374@qq.com
  * @date 2020-04-30 11:55:55
+ * @deprecated
  */
 @RestController
 @RequestMapping("sys/sysuserdetail")

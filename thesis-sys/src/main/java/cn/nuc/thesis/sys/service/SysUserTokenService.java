@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 用户Token
  *
- * @author Mark sunlightcs@gmail.com
  */
 public interface SysUserTokenService extends IService<SysUserTokenEntity> {
 

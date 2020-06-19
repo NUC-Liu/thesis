@@ -12,6 +12,9 @@ import cn.nuc.thesis.sys.dao.SysMajorDao;
 import cn.nuc.thesis.sys.entity.SysMajorEntity;
 import cn.nuc.thesis.sys.service.SysMajorService;
 
+/**
+ * @deprecated
+ */
 
 @Service("sysMajorService")
 public class SysMajorServiceImpl extends ServiceImpl<SysMajorDao, SysMajorEntity> implements SysMajorService {

@@ -13,14 +13,15 @@
     </properties>
 
     <modules>
-        <module>renren-fast</module>
-        <module>renren-generator</module>
+        <!--<module>renren-fast</module>-->
+        <!--<module>renren-generator</module>-->
         <module>thesis-announcement</module>
         <module>thesis-thesis</module>
         <module>thesis-common</module>
         <module>thesis-gateway</module>
         <module>thesis-third-party</module>
         <module>thesis-sys</module>
+        <module>thesis-hadoop</module>
     </modules>
 
     <build>

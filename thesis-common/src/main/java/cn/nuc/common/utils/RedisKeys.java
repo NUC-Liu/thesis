@@ -11,7 +11,6 @@ package cn.nuc.common.utils;
 /**
  * Redis所有Keys
  *
- * @author Mark sunlightcs@gmail.com
  */
 public class RedisKeys {
 

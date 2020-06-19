@@ -20,7 +20,7 @@ public class AnnouncementServiceImpl extends ServiceImpl<AnnouncementDao, Announ
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<AnnouncementEntity> page = this.page(
                 new Query<AnnouncementEntity>().getPage(params),
-                new QueryWrapper<AnnouncementEntity>()
+                new QueryWrapper<AnnouncementEntity>().orderByAsc("gmt_modified")
         );
 
         return new PageUtils(page);
