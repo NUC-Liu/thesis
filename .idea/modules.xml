@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/thesis.iml" filepath="$PROJECT_DIR$/.idea/thesis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis-announcement/thesis-announcement.iml" filepath="$PROJECT_DIR$/thesis-announcement/thesis-announcement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis-common/thesis-common.iml" filepath="$PROJECT_DIR$/thesis-common/thesis-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis-gateway/thesis-gateway.iml" filepath="$PROJECT_DIR$/thesis-gateway/thesis-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis-hadoop/thesis-hadoop.iml" filepath="$PROJECT_DIR$/thesis-hadoop/thesis-hadoop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis-sys/thesis-sys.iml" filepath="$PROJECT_DIR$/thesis-sys/thesis-sys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis-thesis/thesis-thesis.iml" filepath="$PROJECT_DIR$/thesis-thesis/thesis-thesis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis-third-party/thesis-third-party.iml" filepath="$PROJECT_DIR$/thesis-third-party/thesis-third-party.iml" />
+    </modules>
+  </component>
+</project>
